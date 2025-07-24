@@ -1,3 +1,7 @@
+# Gamesemo 프로젝트 게임 정보 제공 페이지 React 버전
+Gamesemo 프로젝트
+https://github.com/wlee412/Gamesemo
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
