@@ -5,7 +5,7 @@ const HomePage = () => {
 
 
     return (
-        <div>
+        <div className="container">
             <h1>홈 페이지</h1>
             <Link to="/game">
                 <button>게임 목록 보기</button>

@@ -1,6 +1,11 @@
 const GameListPage = () => {
     return (
-        <div></div>
+        <div className="container">
+            <h2>게임 목록</h2>
+            <hr/>
+            <main></main>
+            <aside></aside>
+        </div>
     );
 };
 
