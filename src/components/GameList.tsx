@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { GameInfo } from "../types/GameInfo"; // 타입 따로 정의한 경우
+import { GameInfo } from "../types/GameInfo"; // GameInfo 타입
+import { fetchGameList } from "../services/GameApi";
+import { useSelector } from "react-redux";
+import { RootState } from '../store';
 
-const GameList = ({ count = 10 }: { count: number }) => {
+const GameList = () => {
+  const amount = useSelector((state: RootState) => state.gameFilter.amount);
   const [games, setGames] = useState<GameInfo[]>([]);
 
   useEffect(() => {
-    axios.get<GameInfo[]>(`http://3.34.122.138/game/list/${count}`)
-      .then(response => {
-        setGames(response.data);
-      })
+    fetchGameList(amount)
+      .then(setGames)
       .catch(error => {
         console.error("게임 목록 불러오기 실패:", error);
       });
-  }, [count]);
+  }, [amount]);
 
   return (
     <div>
