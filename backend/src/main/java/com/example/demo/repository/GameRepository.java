@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.demo.entity.GameInfo;
 
-public interface GameRepository extends JpaRepository<GameInfo, Long> {
-
+public interface GameRepository extends JpaRepository<GameInfo, Long>, GameRepositoryCustom {
+	
 }
