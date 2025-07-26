@@ -18,18 +18,15 @@ const GameList = () => {
 
   return (
     <div>
-      <ul>
-        {games.map(game => (
-          <li key={game.giNum}>
-            <img src={game.giThumb} alt={game.giTitle} width="120" /><br />
-            <a href={game.giLink} target="_blank" rel="noopener noreferrer">
-              {game.giTitle}
-            </a> ({game.giPlatform})<br />
-            원가: {game.giPrice.toLocaleString()}원 → 할인: {game.giPrice.toLocaleString()}원<br />
-            평점: {game.giRate}점
-          </li>
-        ))}
-      </ul>
+      {games.map((game: any) => (
+        <div key={game.giNum}>
+          <h3>{game.giTitle}</h3>
+          <img src={game.giThumb} alt={game.giTitle} width={150} />
+          <p>가격: {game.giFprice}원 / 평소: {game.giPrice}원</p>
+          <p>할인율: {game.giRate}%</p>
+          <a href={game.giLink} target="_blank" rel="noreferrer">구매 링크</a>
+        </div>
+      ))}
     </div>
   );
 }
