@@ -1,12 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import gameFilterReducer from './gameSlice';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    gameFilter: gameFilterReducer,
   },
 });
 
-// 타입 추론용
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

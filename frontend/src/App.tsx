@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles/common.css';
 import { Provider } from 'react-redux';
-import { store } from './app/store';
+import { store } from './store';
 import AppRoutes from './routes/AppRoutes';
 
 function App() {
