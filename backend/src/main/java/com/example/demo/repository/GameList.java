@@ -12,13 +12,13 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 
 @Repository
-public class GameRepositoryImpl implements GameRepositoryCustom {
+public class GameList implements GameRepositoryCustom {
 
 	@PersistenceContext
 	private EntityManager em;
 
 	@Override
-	public List<GameInfo> findGameListCustom(Pagenation pgn) {
+	public List<GameInfo> query(Pagenation pgn) {
 		StringBuilder sql = new StringBuilder();
 		sql.append("SELECT * FROM ( ");
 		sql.append("SELECT a.*, ROWNUM rn FROM ( ");
