@@ -26,7 +26,8 @@ public class GameController {
 			@RequestParam(name = "state", defaultValue = "dc") String giState,
 			@RequestParam(name = "platform", defaultValue = "all") String giPlatform,
 			@RequestParam(name = "sort", defaultValue = "rateDesc") String sort) {
-		Pagenation pgn = new Pagenation(service.getCount(giState, giPlatform), amount, page);
+		int total = service.countGames(giState, giPlatform);
+		Pagenation pgn = new Pagenation(total, amount, page);
 		pgn.setGiState(giState);
 		pgn.setGiPlatform(giPlatform);
 		pgn.setSort(sort);

@@ -12,13 +12,13 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 
 @Repository
-public class GameList implements GameRepositoryCustom {
+public class GameRepositoryImpl implements GameRepositoryCustom {
 
 	@PersistenceContext
 	private EntityManager em;
 
 	@Override
-	public List<GameInfo> query(Pagenation pgn) {
+	public List<GameInfo> filteredList(Pagenation pgn) {
 		StringBuilder sql = new StringBuilder();
 		sql.append("SELECT * FROM ( ");
 		sql.append("SELECT a.*, ROWNUM rn FROM ( ");
@@ -41,7 +41,7 @@ public class GameList implements GameRepositoryCustom {
 		default -> sql.append("ORDER BY gi_num ASC ");
 		}
 
-		sql.append(") a ) WHERE rn BETWEEN :startRow AND :endRow"); 
+		sql.append(") a ) WHERE rn BETWEEN :startRow AND :endRow");
 
 		Query query = em.createNativeQuery(sql.toString(), GameInfo.class);
 		if (!"free".equals(pgn.getGiState()))
@@ -50,7 +50,8 @@ public class GameList implements GameRepositoryCustom {
 			query.setParameter("giPlatform", pgn.getGiPlatform());
 		query.setParameter("startRow", pgn.getStartRow());
 		query.setParameter("endRow", pgn.getEndRow());
-
+		
 		return query.getResultList();
 	}
+
 }

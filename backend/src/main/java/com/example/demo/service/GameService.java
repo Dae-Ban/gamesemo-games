@@ -14,16 +14,30 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class GameService {
-	private final GameRepository gameRepository;
-	private final GameRepositoryCustom gameRepositoryCustom;
-	
-	public int getCount(String giState, String giPlatform) {
-		return 0;
+	private final GameRepository repo;
+	private final GameRepositoryCustom custom;
+
+	public int countGames(String giState, String giPlatform) {
+		boolean isFree = "free".equals(giState);
+		boolean isAll = "all".equals(giPlatform);
+
+		if (isFree && isAll) {
+			return (int) repo.countByGiFprice(0);
+		} else if (isFree) {
+			return (int) repo.countByGiFpriceAndGiPlatform(0, giPlatform);
+		} else if (isAll) {
+			return (int) repo.countByGiStateContaining(giState);
+		} else {
+			return (int) repo.countByGiStateContainingAndGiPlatform(giState, giPlatform);
+		}
 	}
 
 	public List<GameInfo> getGameList(Pagenation pgn) {
-		return null;
+		return custom.filteredList(pgn);
 	}
 	
-	
+	public GameInfo findByGNum(int gNum) {
+		return repo.findByGNum(gNum);
+	}
+
 }

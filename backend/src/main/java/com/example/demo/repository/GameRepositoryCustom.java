@@ -6,6 +6,7 @@ import com.example.demo.dto.Pagenation;
 import com.example.demo.entity.GameInfo;
 
 public interface GameRepositoryCustom {
-    List<GameInfo> query(Pagenation pgn);
-}
+	
+	List<GameInfo> filteredList(Pagenation pgn);
 
+}

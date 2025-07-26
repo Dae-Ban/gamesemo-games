@@ -46,6 +46,6 @@ public class GameInfo {
     @Column(name = "steam_appid")
     private Long steamAppid;
 
-    @Column(name = "gnum")
-    private Long gnum;
+    @Column(name = "g_num")
+    private Long gNum;
 }
