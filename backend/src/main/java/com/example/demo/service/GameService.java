@@ -36,8 +36,8 @@ public class GameService {
 		return custom.filteredList(pgn);
 	}
 	
-	public GameInfo findByGNum(int gNum) {
-		return repo.findByGNum(gNum);
+	public GameInfo findBygNum(int gNum) {
+		return repo.findBygNum(gNum);
 	}
 
 }

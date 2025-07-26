@@ -4,10 +4,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.demo.entity.GameInfo;
 
-public interface GameRepository extends JpaRepository<GameInfo, Long>, GameRepositoryCustom {
+public interface GameRepository extends JpaRepository<GameInfo, Integer>, GameRepositoryCustom {
 	
 	// 조회
-	GameInfo findByGNum(int gNum);
+	GameInfo findBygNum(int gNum);
 	
 	// 개수
 	int countByGiFprice(int giFprice);
