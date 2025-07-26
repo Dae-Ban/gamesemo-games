@@ -41,7 +41,7 @@ public class GameList implements GameRepositoryCustom {
 		default -> sql.append("ORDER BY gi_num ASC ");
 		}
 
-		sql.append(") a ) WHERE rn BETWEEN :startRow AND :endRow");
+		sql.append(") a ) WHERE rn BETWEEN :startRow AND :endRow"); 
 
 		Query query = em.createNativeQuery(sql.toString(), GameInfo.class);
 		if (!"free".equals(pgn.getGiState()))
