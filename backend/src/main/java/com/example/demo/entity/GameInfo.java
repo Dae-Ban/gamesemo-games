@@ -2,37 +2,50 @@ package com.example.demo.entity;
 
 import java.sql.Timestamp;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
+@Table(name = "game_info", schema = "gamesemo")
 @Getter
 @Setter
 public class GameInfo {
 	@Id
-    private int giNum;
+	@Column(name = "gi_num")
+	private int giNum;
 
-    private String giPlatform;
+	@Column(name = "g_num")
+	private int gNum;
 
-    private String giTitle;
+	@Column(name = "gi_platform")
+	private String giPlatform;
 
-    private String giThumb;
+	@Column(name = "gi_title")
+	private String giTitle;
 
-    private Integer giPrice;
+	@Column(name = "gi_thumb")
+	private String giThumb;
 
-    private Integer giFprice;
+	@Column(name = "gi_price")
+	private Integer giPrice;
 
-    private Integer giRate;
+	@Column(name = "gi_fprice")
+	private Integer giFprice;
 
-    private String giLink;
+	@Column(name = "gi_rate")
+	private Integer giRate;
 
-    private String giState;
+	@Column(name = "gi_link")
+	private String giLink;
 
-    private Timestamp giDate;
+	@Column(name = "gi_state")
+	private String giState;
 
-    private Integer steamAppid;
+	@Column(name = "gi_date")
+	private Timestamp giDate;
 
-    private int gNum;
 }

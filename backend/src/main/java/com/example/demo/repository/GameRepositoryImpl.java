@@ -19,7 +19,7 @@ public class GameRepositoryImpl implements GameRepositoryCustom {
 		StringBuilder sql = new StringBuilder();
 		sql.append("SELECT * FROM ( ");
 		sql.append("SELECT a.*, ROWNUM rn FROM ( ");
-		sql.append("SELECT * FROM game_info WHERE gi_date >= SYSTIMESTAMP - INTERVAL '1' DAY ");
+		sql.append("SELECT * FROM gamesemo.game_info WHERE gi_date >= SYSTIMESTAMP - INTERVAL '1' DAY ");
 
 		if (!"free".equals(pgn.getGiState())) {
 			sql.append("AND gi_state LIKE '%' || :giState || '%' ");

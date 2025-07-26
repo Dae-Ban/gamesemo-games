@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import com.example.demo.dto.Pagenation;
 import com.example.demo.entity.GameInfo;
 import com.example.demo.repository.GameRepository;
-import com.example.demo.repository.GameRepositoryCustom;
 
 import lombok.RequiredArgsConstructor;
 
@@ -15,7 +14,6 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class GameService {
 	private final GameRepository repo;
-	private final GameRepositoryCustom custom;
 
 	public int countGames(String giState, String giPlatform) {
 		boolean isFree = "free".equals(giState);
@@ -33,7 +31,7 @@ public class GameService {
 	}
 
 	public List<GameInfo> getGameList(Pagenation pgn) {
-		return custom.filteredList(pgn);
+		return repo.filteredList(pgn);
 	}
 	
 	public GameInfo findBygNum(int gNum) {

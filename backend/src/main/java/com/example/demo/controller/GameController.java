@@ -31,7 +31,6 @@ public class GameController {
 		pgn.setGiState(giState);
 		pgn.setGiPlatform(giPlatform);
 		pgn.setSort(sort);
-		System.out.println(sort);
 		return service.getGameList(pgn);
 	}
 }
