@@ -49,15 +49,25 @@ const GameList = () => {
     };
   }, [hasMore, loading]);
 
+
   return (
     <tbody>
       {games.map((game) => (
-        <tr key={game.giNum}>
-          <td><img src={game.giThumb} alt={game.giTitle} /></td>
-          <td>{game.giTitle}</td>
-          <td>-{game.giRate}%</td>
-          <td>{game.giPrice}원</td>
-          <td>{game.giFprice}원</td>
+        <tr key={game.giNum} 
+        id={String(game.giNum)}
+        onClick={() => window.open(game.giLink, '_blank', 'noopener,noreferrer')}>
+          <td className='game-thumb'>
+            <div className='thumb-box'>
+              <img src={game.giThumb} alt={game.giTitle} loading='lazy'/>
+            </div>
+          </td>
+          <td className='game-platform'>{game.giPlatform}</td>
+          <td className='game-title'>{game.giTitle}</td>
+          <td className='gmae-dc'>
+            <span>-{game.giRate}% ⬇</span>
+          </td>
+          <td className='game-og-price'>{game.giPrice}원</td>
+          <td className='game-final-price'>{game.giFprice}원</td>
           <td><a href={game.giLink} target="_blank" rel="noreferrer">구매 링크</a></td>
         </tr>
       ))}

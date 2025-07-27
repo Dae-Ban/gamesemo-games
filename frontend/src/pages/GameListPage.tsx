@@ -6,9 +6,14 @@ const GameListPage = () => {
         <div className="container">
             <h2>게임 목록</h2>
             <hr/>
-            <table>
-                <GameList/>
-            </table>
+            <main>
+                <table>
+                    <GameList/>
+                </table>
+            </main>
+            <aside>
+                
+            </aside>
         </div>
     );
 };
