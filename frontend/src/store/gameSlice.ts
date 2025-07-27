@@ -2,8 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { GameInfo } from '../types/GameInfo';
 
 export interface GameFilterState {
-  page: number;
-  amount: number;
+  size: number;
   state: string;
   platform: string;
   sort: string;
@@ -12,8 +11,7 @@ export interface GameFilterState {
 }
 
 const initialState: GameFilterState = {
-  page: 1,
-  amount: 20,
+  size: 20,
   state: 'dc',
   platform: 'all',
   sort: 'rateDesc',
@@ -26,7 +24,7 @@ export const gameFilterSlice = createSlice({
   initialState,
   reducers: {
     setAmount: (state, action: PayloadAction<number>) => {
-      state.amount = action.payload;
+      state.size = action.payload;
     },
   },
 });
