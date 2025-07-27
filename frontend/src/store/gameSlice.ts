@@ -23,11 +23,34 @@ export const gameFilterSlice = createSlice({
   name: 'gameFilter',
   initialState,
   reducers: {
-    setAmount: (state, action: PayloadAction<number>) => {
+    setSize: (state, action: PayloadAction<number>) => {
       state.size = action.payload;
+    },
+    setState: (state, action: PayloadAction<string>) => {
+      state.state = action.payload;
+    },
+    setPlatform: (state, action: PayloadAction<string>) => {
+      state.platform = action.payload;
+    },
+    setSort: (state, action: PayloadAction<string>) => {
+      state.sort = action.payload;
+    },
+    setGames: (state, action: PayloadAction<GameInfo[]>) => {
+      state.games = action.payload;
+    },
+    setLoading: (state, action: PayloadAction<boolean>) => {
+      state.loading = action.payload;
     },
   },
 });
 
-export const { setAmount } = gameFilterSlice.actions;
+export const {
+  setSize,
+  setState,
+  setPlatform,
+  setSort,
+  setGames,
+  setLoading,
+} = gameFilterSlice.actions;
+
 export default gameFilterSlice.reducer;

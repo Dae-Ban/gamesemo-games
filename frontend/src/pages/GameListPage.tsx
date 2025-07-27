@@ -1,5 +1,6 @@
 import GameList from "../components/GameList";
-import "../styles/gamePageStyle";
+import GameSidebar from "../components/GameSidebar";
+import "../styles/gamePageStyle.css";
 
 const GameListPage = () => {
     return (
@@ -11,9 +12,7 @@ const GameListPage = () => {
                     <GameList/>
                 </table>
             </main>
-            <aside>
-                
-            </aside>
+            <GameSidebar/>
         </div>
     );
 };
