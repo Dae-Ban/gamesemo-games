@@ -1,14 +1,18 @@
 import GameList from "../components/GameList";
-import "../styles/gamePageStyle";
+import GameSidebar from "../components/GameSidebar";
+import "../styles/gamePageStyle.css";
 
 const GameListPage = () => {
     return (
         <div className="container">
             <h2>게임 목록</h2>
             <hr/>
-            <table>
-                <GameList/>
-            </table>
+            <main>
+                <table>
+                    <GameList/>
+                </table>
+            </main>
+            <GameSidebar/>
         </div>
     );
 };
